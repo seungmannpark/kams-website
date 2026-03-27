@@ -1,0 +1,57 @@
+{
+  "society": {
+    "name_ko": "대한의사학회",
+    "name_hanja": "大韓醫史學會",
+    "name_en": "Korean Association for the History of Medicine",
+    "founded": "1947",
+    "email": "medhistory@hanmail.net",
+    "tel": "051-890-8677",
+    "address": "부산광역시 진구 복지로 75, 인제대학교 의과대학 인문사회의학과",
+    "copyright": "2025"
+  },
+  "journal": {
+    "issn_print": "1225-505X",
+    "issn_online": "2093-5609",
+    "founded": "1992",
+    "current_volume": "34",
+    "current_issue": "3",
+    "current_date": "Dec 2025",
+    "url": "https://www.medhist.or.kr/"
+  },
+  "notices": [
+    {
+      "title": "대한의사학회 찬조금 안내",
+      "date": "2026. 01. 29",
+      "url": "https://www.medhist.or.kr/notice/?id=201&mode=view"
+    },
+    {
+      "title": "대한의사학회 유튜브 채널 개설 안내",
+      "date": "2025. 12. 07",
+      "url": "https://www.medhist.or.kr/notice/?id=200&mode=view"
+    },
+    {
+      "title": "제2회 일산 김두종 기념 강연 및 2025년 가을철 학술대회 안내",
+      "date": "2025. 10. 29",
+      "url": "https://www.medhist.or.kr/notice/?id=199&mode=view"
+    },
+    {
+      "title": "2025년 봄철 학술대회 및 정기총회 안내 (7월 4일, 금)",
+      "date": "2025. 06. 09",
+      "url": "https://www.medhist.or.kr/notice/?id=198&mode=view"
+    }
+  ],
+  "events": [
+    {
+      "month": "Jul",
+      "day": "4",
+      "name": "2025년 봄철 학술대회 및 정기총회",
+      "place": "장소 추후 공지"
+    },
+    {
+      "month": "Nov",
+      "day": "7",
+      "name": "제2회 일산 김두종 기념 강연 및 2025년 가을철 학술대회",
+      "place": "대한의사협회 · 의협 평점 3점"
+    }
+  ]
+}
