@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="format-detection" content="telephone=no, email=no, address=no">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>김두종 학술상 — 대한의사학회</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500" rel="stylesheet">
-<style>
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --navy:         #0A1545;
@@ -29,7 +19,7 @@
     --fell:         'Noto Serif', 'Noto Serif KR', Georgia, serif;
   }
   html { scroll-behavior: smooth; }
-  body { background: #E0E0E0; color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; min-height: 100vh; overflow-y: scroll; }
+  body { background: #E0E0E0; color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; min-height: 100vh; }
 
   /* HEADER */
   header { background: var(--navy); padding: 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #C2CBD3; }
@@ -41,15 +31,15 @@
   .nav-item { position: relative; }
   nav a { font-family: var(--serif); font-size: 13px; font-weight: 400; color: rgba(245,245,245,0.92); text-decoration: none; padding: 0 18px; height: 64px; display: flex; align-items: center; letter-spacing: 0.04em; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s, border-color 0.2s; }
   nav a:hover { color: #fff; border-bottom-color: var(--sky); }
-  .dropdown { display: none; position: absolute; top: 64px; left: 0; background: var(--navy-dk); border-top: none; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 160px; padding: 8px 0; z-index: 200; }
+  .dropdown { display: none; position: absolute; top: 64px; left: 0; background: var(--navy-dk); border-top: 2px solid #C2CBD3; min-width: 160px; padding: 8px 0; z-index: 200; }
   .nav-item:hover .dropdown { display: block; }
   .dropdown a { height: auto; padding: 9px 20px; font-size: 12.5px; display: block; border-bottom: none; margin-bottom: 0; white-space: nowrap; }
   .dropdown a:hover { background: rgba(150,150,150,0.10); color: var(--sky-lt); border-bottom: none; }
 
   /* MASTHEAD */
-  .masthead { background: var(--navy); color: var(--white); padding: 64px 0 56px; border-bottom: 1px solid rgba(150,150,150,0.20); position: relative; overflow: hidden;  }
+  .masthead { background: var(--navy); color: var(--white); padding: 64px 0 56px; border-bottom: 1px solid rgba(150,150,150,0.20); position: relative; overflow: hidden; }
   .masthead::before { content: ''; position: absolute; inset: 0; background-image: url("./masthead-bg.jpg"); background-size: cover; background-position: center 30%; pointer-events: none; z-index: 0; }
-  .masthead::after { content: ''; position: absolute; inset: 0; background: rgba(10,21,69,0.88); pointer-events: none; z-index: 1; }
+  .masthead::after  { content: ''; position: absolute; inset: 0; background: rgba(10,21,69,0.88); pointer-events: none; z-index: 1; }
   .masthead-inner { max-width: 1200px; margin: 0 auto; padding: 0 76px; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 48px; position: relative; z-index: 2; }
   .masthead-label { font-family: var(--fell); font-style: italic; font-size: 11px; color: var(--sky); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
   .masthead-title { font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 4vw, 44px); letter-spacing: 0.08em; line-height: 1.2; margin-bottom: 10px; }
@@ -141,13 +131,13 @@
     .site-title .en { display: none; }
 
     /* 햄버거 메뉴 */
-    #nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 8px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; background: none; border: none; cursor: pointer; padding: 0; }
     .nav-toggle span { display: block; width: 100%; height: 1.5px; background: rgba(255,255,255,0.8); transition: transform 0.25s, opacity 0.25s; }
     .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    nav { display: none; } nav.open { display: flex; position: fixed; top: 56px; left: 0; right: 0; max-height: calc(100vh - 56px); background: var(--navy-dk); flex-direction: column; overflow-y: auto; z-index: 99; padding: 16px 0 40px; }
+    nav { display: none; position: fixed; top: 56px; left: 0; right: 0; bottom: 0; background: var(--navy-dk); flex-direction: column; overflow-y: auto; z-index: 99; padding: 16px 0 40px; }
     nav.open { display: flex; }
     .nav-item { border-bottom: 1px solid rgba(150,150,150,0.10); }
     nav > .nav-item > a { height: 52px; padding: 0 24px; font-size: 15px; border-bottom: none; margin-bottom: 0; }
@@ -182,165 +172,65 @@
     .nav-toggle { display: none; }
   }
 
-  .no-tel { unicode-bidi: plaintext; }
-  a[href^="mailto"] { pointer-events: none; color: inherit; text-decoration: none; }
-  .no-auto-link { -webkit-touch-callout: none; }
 
-  .sub-nav { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 0; border-bottom: 1px solid var(--silver-lt); }
-  .sub-nav a { font-family: var(--serif); font-size: 13px; color: var(--silver); text-decoration: none; padding: 12px 20px 12px 0; margin-right: 20px; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; letter-spacing: 0.02em; white-space: normal; }
+  /* ── 서브 페이지 공통 ── */
+  .page-wrap { padding: 48px 0 80px; }
+  .page-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+  /* sub-nav는 카드 텍스트와 동일한 수직선: 48px 안에서 추가 28px */
+  .sub-nav { padding-left: 28px; }
+
+  /* 페이지 헤더 */
+  .page-header { margin-bottom: 48px; border-bottom: 1px solid var(--silver-lt); padding-bottom: 28px; }
+  .page-header-label { font-family: var(--fell); font-style: italic; font-size: 11px; color: var(--sky-dk); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+  .page-header-title { font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 3vw, 32px); letter-spacing: 0.06em; color: var(--navy); line-height: 1.3; }
+
+  /* 서브 네비게이션 */
+  .sub-nav { display: flex; gap: 0; margin-bottom: 48px; border-bottom: 1px solid var(--silver-lt); }
+  .sub-nav a { font-family: var(--serif); font-size: 13px; color: var(--silver); text-decoration: none; padding: 10px 20px 10px 0; margin-right: 20px; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; letter-spacing: 0.02em; }
   .sub-nav a:hover, .sub-nav a.active { color: var(--navy); border-bottom-color: var(--navy); }
-  .content-body { font-family: var(--serif); font-size: 14px; line-height: 2.0; color: var(--ink); font-weight: 300; margin-bottom: 32px; }
-  .timeline { }
-  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+
+  /* 본문 */
+  .content-body { font-family: var(--serif); font-size: 14px; line-height: 2.0; color: var(--ink); font-weight: 300; }
+  .content-body h3 { font-family: var(--serif); font-weight: 500; font-size: 16px; color: var(--navy); margin: 36px 0 12px; letter-spacing: 0.04em; }
+  .content-body p { margin-bottom: 16px; }
+
+  /* 연혁 타임라인 */
+  .timeline { position: relative; padding-left: 0; }
+  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--silver-lt); }
   .timeline-item:last-child { border-bottom: none; }
-  .timeline-year { font-family: var(--fell); font-size: 17px; color: var(--navy); padding-top: 2px; }
+  .timeline-year { font-family: var(--fell); font-size: 18px; color: var(--navy); font-weight: 400; padding-top: 2px; }
   .timeline-content { font-family: var(--serif); font-size: 13.5px; line-height: 1.85; color: var(--ink); font-weight: 300; }
   .timeline-content strong { font-weight: 500; color: var(--navy); }
-  .officers-section { margin-bottom: 36px; }
-  .officers-section h3 { font-family: var(--serif); font-weight: 500; font-size: 15px; color: var(--navy); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+
+  /* 임원진 그리드 */
   .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1px; background: var(--silver-lt); border: 1px solid var(--silver-lt); }
-  .officer-card { background: #fff; padding: 18px 20px; }
-  .officer-role { font-family: var(--serif); font-size: 11px; color: var(--sky-dk); letter-spacing: 0.04em; margin-bottom: 5px; }
-  .officer-name { font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 2px; }
-  .officer-affil { font-size: 11px; color: var(--silver); }
-  .bylaw-section { margin-bottom: 28px; }
+  .officer-card { background: #fff; padding: 24px 20px; }
+  .officer-role { font-family: var(--fell); font-style: italic; font-size: 10px; color: var(--sky-dk); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+  .officer-name { font-family: var(--serif); font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 4px; }
+  .officer-affil { font-size: 12px; color: var(--silver); }
+
+  /* 정관 */
+  .bylaw-section { margin-bottom: 36px; }
   .bylaw-section h3 { font-family: var(--serif); font-weight: 500; font-size: 15px; color: var(--navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
-  .bylaw-article { font-family: var(--serif); font-size: 13.5px; line-height: 1.9; color: var(--ink); font-weight: 300; margin-bottom: 8px; }
-  .bylaw-article span { font-weight: 500; color: var(--navy); margin-right: 6px; }
-  .policy-section { margin-bottom: 32px; }
-  .policy-section h3 { font-family: var(--serif); font-weight: 500; font-size: 15px; color: var(--navy); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
-  .policy-section p { font-family: var(--serif); font-size: 13.5px; line-height: 1.9; color: var(--ink); font-weight: 300; margin-bottom: 8px; }
-  .policy-section ul { font-family: var(--serif); font-size: 13.5px; line-height: 1.9; color: var(--ink); font-weight: 300; padding-left: 1.2em; margin-bottom: 8px; }
-  .policy-section li { margin-bottom: 4px; }
-  .info-box { margin-top: 32px; padding: 20px 24px; background: var(--off-white); border: 1px solid var(--silver-lt); font-family: var(--serif); font-size: 13px; color: var(--silver); line-height: 1.9; }
-  .info-box strong { color: var(--navy); font-weight: 500; }
-  a[href^="mailto"] { pointer-events: none; color: inherit; text-decoration: none; }
-  .no-auto-link { -webkit-touch-callout: none; }
+  .bylaw-article { font-family: var(--serif); font-size: 13.5px; line-height: 1.9; color: var(--ink); font-weight: 300; margin-bottom: 10px; }
+  .bylaw-article span { font-weight: 500; color: var(--navy); margin-right: 8px; }
+
   @media (max-width: 768px) {
-    .timeline-item { grid-template-columns: 1fr; gap: 4px; }
-    .timeline-year { font-size: 14px; }
+    .page-wrap { padding: 24px 0 48px; }
+    .page-inner { padding: 0 16px; }
+    .timeline-item { grid-template-columns: 80px 1fr; gap: 16px; }
     .officers-grid { grid-template-columns: 1fr 1fr; }
-    .sub-nav a { font-size: 12px; padding: 10px 12px 10px 0; margin-right: 10px; }
+    .sub-nav { flex-wrap: wrap; gap: 4px; }
+    .sub-nav a { padding: 8px 12px 8px 0; font-size: 12px; }
   }
-</style>
-</head>
-<body>
 
-<header>
-  <div class="header-inner">
-    <a class="site-title" href="kams-homepage.html">
-      <span class="ko">대한의사학회</span>
-    </a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
-    <nav id="main-nav">
-      <div class="nav-item">
-        <a href="#">학회소개</a>
-        <div class="dropdown">
-          <a href="history.html">설립 연혁</a>
-          <a href="officers.html">임원진 소개</a>
-          <a href="bylaws.html">회칙</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="#">학술활동</a>
-        <div class="dropdown">
-          <a href="conference.html">학술대회</a>
-          <a href="award.html">김두종 학술상</a>
-          <a href="archive.html">행사 아카이브</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="#">출판·연구</a>
-        <div class="dropdown">
-          <a href="https://www.medhist.or.kr/">의사학 (학술지)</a>
-          <a href="publications.html">학회 발간물</a>
-          <a href="resources.html">관련 자료실</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="#">회원</a>
-        <div class="dropdown">
-          <a href="join.html">회원 가입</a>
-          <a href="membership.html">회비 안내</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="#">공지·소식</a>
-        <div class="dropdown">
-          <a href="notices.html">공지사항</a>
-          <a href="news.html">학계 소식</a>
-          <a href="gallery.html">갤러리</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
-
-<div class="masthead" style="padding:36px 0;">
-  <div class="masthead-inner" style="grid-template-columns:1fr;gap:0;position:relative;z-index:2;">
-    <div>
-      <div class="masthead-label">Academic</div>
-      <h1 class="masthead-title" style="font-size:clamp(18px,3vw,28px);">김두종 학술상</h1>
-    </div>
-  </div>
-</div>
-
-<main>
-  <div class="main-inner">
-    <div style="background:#fff;border:1px solid var(--silver-lt);margin-bottom:1px;overflow:hidden;">
-      <div style="padding:0 28px;">
-        <nav class="sub-nav"><a href="conference.html" class="">학술대회</a><a href="award.html" class="active">김두종 학술상</a><a href="archive.html" class="">행사 아카이브</a></nav>
-      </div>
-      <div style="padding:36px 28px;">
-        <div class="content-body"><p>이 페이지는 준비 중입니다.</p></div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-name">대한의사학회</div>
-      <div>The Korean Society for the History of Medicine</div>
-      <div>인제대학교 의과대학 인문사회의학교실 · 051-890-8677 · <a href="mailto:medhistory@hanmail.net" style="color:inherit;text-decoration:none;">medhistory@hanmail.net</a></div>
-      <div class="footer-copy">© 2025 The Korean Society for the History of Medicine. All rights reserved.</div>
-    </div>
-    <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="nospam.html">이메일 무단수집 거부</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-async function loadFooter() {
-  let c;
-  try {
-    const res = await fetch('./config.json');
-    if (!res.ok) throw new Error();
-    c = await res.json();
-  } catch(e) {
-    c = { society: { address: '부산광역시 진구 복지로 75, 인제대학교 의과대학 인문사회의학교실', tel: '051-890-8677', email: 'medhistory@hanmail.net', copyright: '2025' } };
+  /* 서브 페이지 본문 카드 */
+  .content-card {
+    background: #fff;
+    border: 1px solid var(--silver-lt);
+    margin-bottom: 1px;
+    padding: 40px 0;
   }
-  const s = c.society;
-  const el = document.getElementById('footer-info-container');
-  if (el) el.innerHTML = `
-    <div class="footer-name">대한의사학회</div>
-    <div>The Korean Society for the History of Medicine</div>
-    <div>${s.address} · TEL ${s.tel} · <a href="mailto:${s.email}" style="color:inherit;text-decoration:none;">${s.email}</a></div>
-    <div class="footer-copy">© ${s.copyright} The Korean Society for the History of Medicine. All rights reserved.</div>`;
-}
-loadFooter();
-</script>
-<script>
-(function() {
-  var btn = document.getElementById('nav-toggle');
-  var nav = document.getElementById('main-nav');
-  if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
-    var open = nav.classList.toggle('open');
-    btn.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  nav.querySelectorA
+  @media (max-width: 768px) {
+    .content-card { padding: 28px 20px; }
+  }

@@ -2,10 +2,11 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>대한의사학회 · Korean Society for the History of Medicine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -15,8 +16,8 @@
     --sky-lt: #D0D0D0;
     --sky-dk: #707070;
     --silver: #888888;
-    --serif:  'Noto Serif KR', Georgia, serif;
-    --fell:   'Noto Serif', 'Noto Serif KR', Georgia, serif;
+    --serif:  'Noto Serif KR', var(--serif);
+    --fell:   'Noto Serif', 'Noto Serif KR', var(--serif);
   }
 
   html, body { height: 100%;  overflow-y: scroll; }
@@ -34,16 +35,29 @@
     overflow: hidden;
   }
 
-  /* 배경 수직선 */
+  /* 배경 사진 */
   body::before {
     content: '';
     position: absolute;
     inset: 0;
+    background-image: url("./masthead-bg.jpg");
+    background-size: cover;
+    background-position: center 30%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* 오버레이 */
+  body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(6,13,46,0.82);
     background-image: repeating-linear-gradient(
       90deg, transparent, transparent 79px,
-      rgba(150,150,150,0.04) 79px, rgba(150,150,150,0.04) 80px
+      rgba(150,150,150,0.03) 79px, rgba(150,150,150,0.03) 80px
     );
     pointer-events: none;
+    z-index: 0;
   }
 
   /* 배경 큰 글자 */
@@ -105,13 +119,6 @@
     margin-bottom: 64px;
   }
 
-  .prompt {
-    font-family: var(--fell); font-style: italic;
-    font-size: 12px;
-    color: rgba(245,245,245,0.65);
-    letter-spacing: 0.1em;
-    margin-bottom: 36px;
-  }
 
   /* 두 버튼 */
   .choices {
@@ -202,8 +209,7 @@
   .name-ko    { animation-delay: 0.18s; }
   .name-en    { animation-delay: 0.24s; }
   .divider    { animation-delay: 0.32s; }
-  .prompt     { animation-delay: 0.38s; }
-  .choices    { animation-delay: 0.44s; }
+  .choices    { animation-delay: 0.38s; }
   @keyframes up { to { opacity: 1; transform: translateY(0); } }
 
   /* ─── MOBILE (≤768px) ─── */
@@ -212,7 +218,7 @@
     .site-title .en { display: none; }
 
     /* 햄버거 메뉴 */
-    .nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 28px; height: 28px; background: none; border: none; cursor: pointer; padding: 0; }
+    #nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 8px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     .nav-toggle span { display: block; width: 100%; height: 1.5px; background: rgba(255,255,255,0.8); transition: transform 0.25s, opacity 0.25s; }
     .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -264,11 +270,12 @@
     .bg-text { display: none; }
   }
 
+  .no-tel { unicode-bidi: plaintext; }
+  a[href^="mailto"] { pointer-events: none; color: inherit; text-decoration: none; }
+  .no-auto-link { -webkit-touch-callout: none; }
 </style>
 </head>
-<body><div style="position:fixed;inset:0;background:rgba(10,21,69,0.83);z-index:0;pointer-events:none;"></div>
-
-<div class="bg-text">1947</div>
+<body><div class="bg-text">1947</div>
 
 <div class="wrap" style="position:relative;z-index:1;">
   <div class="est">Est. 1947</div>
@@ -276,8 +283,6 @@
   <p class="name-en">The Korean Society for the History of Medicine</p>
 
   <div class="divider"></div>
-  <p class="prompt">Select a destination</p>
-
   <div class="choices">
     <!-- 학회 홈페이지 -->
     <a class="choice" href="kams-homepage.html">
