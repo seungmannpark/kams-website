@@ -354,9 +354,14 @@ loadFooter();
   var btn = document.getElementById('nav-toggle');
   var nav = document.getElementById('main-nav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
+  function toggleNav(e) {
+    e.preventDefault();
     var open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
+    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  }
+  btn.addEventListener('click', toggleNav);
+  btn.addEventListener('touchend', toggleNav);
   nav.querySelectorA

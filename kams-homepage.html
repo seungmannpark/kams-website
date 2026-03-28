@@ -314,7 +314,7 @@
           <div class="journal-subtitle">Korean Journal of Medical History</div>
           <div class="journal-meta">
             <span class="no-tel">ISSN 1225&#8209;505X (Print) · 2093&#8209;5609 (Online)</span><br>
-            연 3회 발행 · KoreaMed · KoMCI · KCI · WPRIM · DOAJ · Google Scholar<br>Medline/PubMed · SCOPUS · A&amp;HCI/Web of Science
+            연 3회 발행 · KCI 등재 · A&amp;HCI<br>Scopus · PubMed · PMC
           </div>
         </div>
         <a href="https://www.medhist.or.kr/" class="btn-journal" target="_blank">학술지 홈페이지 바로가기</a>
@@ -465,9 +465,14 @@ loadConfig();
   var btn = document.getElementById('nav-toggle');
   var nav = document.getElementById('main-nav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', function() {
+  function toggleNav(e) {
+    e.preventDefault();
     var open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
+    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  }
+  btn.addEventListener('click', toggleNav);
+  btn.addEventListener('touchend', toggleNav);
   nav.querySelectorAl
