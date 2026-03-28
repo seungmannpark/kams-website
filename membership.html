@@ -381,6 +381,20 @@ loadFooter();
   btn.addEventListener('click', function() {
     var open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
+    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  nav.querySelectorA
+  nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-label', '메뉴 열기');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>
