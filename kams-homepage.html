@@ -392,8 +392,13 @@ async function loadPapers() {
       var papers = items.map(function(item) {
         var getText = function(tag) { var el = item.querySelector(tag); return el ? el.textContent.trim() : ''; };
         var title = getText('title');
-        if (title.indexOf(' / ') !== -1) title = title.split(' / ').pop().trim();
-        var authorEl = item.getElementsByTagName('dc:creator')[0] || item.getElementsByTagName('creator')[0] || item.getElementsByTagName('author')[0];
+        if (title.indexOf(' / ') !== -1) {
+          var parts = title.split(' / ');
+          // 한글 포함된 쪽 선택
+          title = parts.find(function(p) { return /[\uAC00-\uD7A3]/.test(p); }) || parts[0];
+          title = title.trim();
+        }
+        var authorEl = item.getElementsByTagName('dc:creator')[0] || item.getElementsByTagName('creator')[0];
         var author = authorEl ? authorEl.textContent.trim() : '';
         var desc = getText('description');
         var volMatch = desc.match(/Vol[^<]+/);
