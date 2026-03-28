@@ -314,7 +314,7 @@
           <div class="journal-subtitle">Korean Journal of Medical History</div>
           <div class="journal-meta">
             <span class="no-tel">ISSN 1225&#8209;505X (Print) · 2093&#8209;5609 (Online)</span><br>
-            연 3회 발행 · KCI 등재 · A&amp;HCI<br>Scopus · PubMed · PMC
+            연 3회 발행 · KoreaMed · KoMCI · KCI · WPRIM · DOAJ · Google Scholar<br>Medline/PubMed · SCOPUS · A&amp;HCI/Web of Science
           </div>
         </div>
         <a href="https://www.medhist.or.kr/" class="btn-journal" target="_blank">학술지 홈페이지 바로가기</a>
@@ -374,44 +374,48 @@ function renderPapers(list) {
 
 async function loadPapers() {
   var rssUrl = 'https://www.medhist.or.kr/journal/rss/make_xml.php';
-  var proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
-  try {
-    var res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error('fetch failed');
-    var json = await res.json();
-    if (!json.contents) throw new Error('no contents');
-
-    var parser = new DOMParser();
-    var xml = parser.parseFromString(json.contents, 'application/xml');
-    var items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
-    if (!items.length) throw new Error('no items');
-
-    var papers = items.map(function(item) {
-      var title = (item.querySelector('title') || {}).textContent || '';
-      // 제목에 영문/한글 슬래시 구분이 있으면 한글 부분만
-      if (title.indexOf(' / ') !== -1) {
-        title = title.split(' / ').pop();
+  var proxies = [
+    'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl),
+    'https://corsproxy.io/?' + encodeURIComponent(rssUrl)
+  ];
+  for (var i = 0; i < proxies.length; i++) {
+    try {
+      var res = await fetch(proxies[i]);
+      if (!res.ok) continue;
+      var text;
+      if (proxies[i].indexOf('allorigins') !== -1) {
+        var json = await res.json();
+        if (!json.contents) continue;
+        text = json.contents;
+      } else {
+        text = await res.text();
       }
-      title = title.trim();
-
-      return { title: title, author: author, vol: vol, link: link };
-    });
-
-    document.getElementById('papers-container').innerHTML = papers.map(function(p) {
-      return '<a href="' + p.link + '" class="paper-title-link" target="_blank"><div class="paper-title">' + p.title + '</div><div class="paper-author">' + p.author + '</div><div class="paper-vol">' + p.vol + '</div></a>';
-    }).join('');
-
-  } catch(e) {
-    var fallback = document.getElementById('papers-container');
-    if (fallback) {
-      fallback.innerHTML = FALLBACK.map(function(p) {
-        return '<a href="' + p.link + '" class="paper-title-link" target="_blank"><div class="paper-title">' + p.title + '</div><div class="paper-author">' + p.author + '</div><div class="paper-vol">' + p.vol + '</div></a>';
-      }).join('');
-    }
+      var parser = new DOMParser();
+      var xml = parser.parseFromString(text, 'application/xml');
+      var items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
+      if (!items.length) continue;
+      var papers = items.map(function(item) {
+        var getText = function(tag) {
+          var el = item.querySelector(tag);
+          return el ? el.textContent.trim() : '';
+        };
+        var title = getText('title');
+        if (title.indexOf(' / ') !== -1) title = title.split(' / ').pop().trim();
+        var author = getText('creator') || getText('author') || '';
+        var desc = getText('description');
+        var volMatch = desc.match(/Vol[^<\n]+/);
+        var vol = volMatch ? volMatch[0].trim() : getText('category') || '';
+        var link = getText('link') || (item.querySelector('guid') ? item.querySelector('guid').textContent.trim() : '#');
+        return { title: title, author: author, vol: vol, link: link };
+      });
+      renderPapers(papers);
+      return;
+    } catch(e) { continue; }
   }
+  renderPapers(FALLBACK);
 }
 
-fetchPapers();
+loadPapers();
 </script>
 
 <script>
@@ -431,18 +435,18 @@ async function loadConfig() {
         { title: '2025년 봄철 학술대회 및 정기총회 안내 (7월 4일, 금)', date: '2025. 06. 09', url: 'https://www.medhist.or.kr/notice/?id=198&mode=view' }
       ],
       events: [
-        { month: 'Jul', day: '4', name: '2025년 봄철 학술대회 및 정기총회', place: '장소 추후 공지' },
-        { month: 'Nov', day: '7', name: '제2회 일산 김두종 기념 강연 및 2025년 가을철 학술대회', place: '대한의사협회 · 의협 평점 3점' }
+        { month: 'Jul', day: '4', name: '2025년 봄철 학술대회 및 정기총회', place: '장소 추후 공지', url: 'https://www.medhist.or.kr/notice/?id=198&mode=view' },
+        { month: 'Nov', day: '7', name: '제2회 일산 김두종 기념 강연 및 2025년 가을철 학술대회', place: '대한의사협회 · 의협 평점 3점', url: 'https://www.medhist.or.kr/notice/?id=199&mode=view' }
       ]
     };
   }
   const s = c.society;
 
   document.getElementById('events-container').innerHTML = c.events.map(e => `
-    <div class="event-item">
+    <a class="event-item" href="${e.url || '#'}" target="_blank" style="text-decoration:none;color:inherit;display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:flex-start;">
       <div class="event-date"><span class="month">${e.month}</span><span class="day">${e.day}</span></div>
       <div><div class="event-name">${e.name}</div><div class="event-place">${e.place}</div></div>
-    </div>`).join('');
+    </a>`).join('');
 
   document.getElementById('notices-container').innerHTML = c.notices.map(n => `
     <a href="${n.url}" class="notice-item" target="_blank">
