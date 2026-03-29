@@ -2,7 +2,7 @@
   "society": {
     "name_ko": "대한의사학회",
     "name_hanja": "大韓醫史學會",
-    "name_en": "Korean Association for the History of Medicine",
+    "name_en": "Korean Society for the History of Medicine",
     "founded": "1947",
     "email": "medhistory@hanmail.net",
     "tel": "051-890-8677",
@@ -45,15 +45,13 @@
       "month": "Jul",
       "day": "4",
       "name": "2025년 봄철 학술대회 및 정기총회",
-      "place": "장소 추후 공지",
-      "url": "https://www.medhist.or.kr/notice/?id=198&mode=view"
+      "place": "장소 추후 공지"
     },
     {
       "month": "Nov",
       "day": "7",
       "name": "제2회 일산 김두종 기념 강연 및 2025년 가을철 학술대회",
-      "place": "대한의사협회 · 의협 평점 3점",
-      "url": "https://www.medhist.or.kr/notice/?id=199&mode=view"
+      "place": "대한의사협회 · 의협 평점 3점"
     }
   ]
 }

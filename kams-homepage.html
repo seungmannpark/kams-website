@@ -31,14 +31,14 @@
   body { background: #E0E0E0; color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; min-height: 100vh; overflow-y: scroll; }
 
   /* HEADER */
-  header { background: var(--navy); padding: 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #C2CBD3; }
+  header { background: var(--navy); padding: 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #C2CBD3; }
   .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 76px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .site-title { display: flex; flex-direction: column; line-height: 1.2; text-decoration: none; }
-  .site-title .ko { font-family: var(--serif); font-weight: 500; font-size: 17px; letter-spacing: 0.06em; color: #fff; }
-  .site-title .en { font-family: var(--fell); font-style: italic; font-size: 11.5px; color: var(--sky-lt); letter-spacing: 0.04em; }
+  .site-title .ko { font-family: var(--serif); font-weight: 500; font-size: 15px; letter-spacing: 0.06em; color: #fff; }
+  .site-title .en { font-family: var(--fell); font-style: italic; font-size: 10px; color: var(--sky-lt); letter-spacing: 0.04em; }
   nav { display: flex; }
   .nav-item { position: relative; }
-  nav a { font-family: var(--serif); font-size: 14.5px; font-weight: 400; color: rgba(245,245,245,0.92); text-decoration: none; padding: 0 18px; height: 64px; display: flex; align-items: center; letter-spacing: 0.04em; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s, border-color 0.2s; }
+  nav a { font-family: var(--serif); font-size: 13px; font-weight: 400; color: rgba(245,245,245,0.92); text-decoration: none; padding: 0 18px; height: 64px; display: flex; align-items: center; letter-spacing: 0.04em; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s, border-color 0.2s; }
   nav a:hover { color: #fff; border-bottom-color: var(--sky); }
   .dropdown { display: none; position: absolute; top: 64px; left: 0; background: var(--navy-dk); border-top: none; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 160px; padding: 8px 0; z-index: 200; }
   .nav-item:hover .dropdown { display: block; }
@@ -109,7 +109,7 @@
   .stat-label { font-size: 11px; color: var(--silver); letter-spacing: 0.04em; }
 
   .journal-card { background: var(--navy); color: var(--white); padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
-  .journal-card::before { content: '醫史學'; position: absolute; right: 16px; bottom: -8px; font-family: var(--serif); font-size: 88px; color: rgba(150,150,150,0.15); font-weight: 600; pointer-events: none; line-height: 1; }
+  .journal-card::before { content: '醫史學'; position: absolute; right: 16px; bottom: -8px; font-family: var(--serif); font-size: 88px; color: rgba(150,150,150,0.07); font-weight: 600; pointer-events: none; line-height: 1; }
   .journal-label { font-family: var(--fell); font-style: italic; font-size: 10px; color: var(--sky); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
   .journal-title { font-family: var(--serif); font-size: 22px; font-weight: 500; color: #fff; letter-spacing: 0.06em; margin-bottom: 4px; }
   .journal-subtitle { font-family: var(--fell); font-style: italic; font-size: 12px; color: var(--sky-lt); margin-bottom: 20px; }
@@ -140,7 +140,7 @@
     .site-title .en { display: none; }
 
     /* 햄버거 메뉴 */
-    #nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 8px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; position: relative; z-index: 1001; }
+    #nav-toggle { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 8px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     .nav-toggle span { display: block; width: 100%; height: 1.5px; background: rgba(255,255,255,0.8); transition: transform 0.25s, opacity 0.25s; }
     .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
@@ -149,9 +149,9 @@
     nav { display: none; } nav.open { display: flex; position: fixed; top: 56px; left: 0; right: 0; max-height: calc(100vh - 56px); background: var(--navy-dk); flex-direction: column; overflow-y: auto; z-index: 99; padding: 16px 0 40px; }
     nav.open { display: flex; }
     .nav-item { border-bottom: 1px solid rgba(150,150,150,0.10); }
-    nav > .nav-item > a { height: 52px; padding: 0 24px; font-size: 16.5px; border-bottom: none; margin-bottom: 0; }
+    nav > .nav-item > a { height: 52px; padding: 0 24px; font-size: 15px; border-bottom: none; margin-bottom: 0; }
     .dropdown { display: block; position: static; border-top: none; border-left: 2px solid rgba(150,150,150,0.20); margin: 0 24px 8px 36px; padding: 4px 0; background: transparent; }
-    .dropdown a { padding: 7px 12px; font-size: 14px; color: rgba(255,255,255,0.55); }
+    .dropdown a { padding: 7px 12px; font-size: 13px; color: rgba(255,255,255,0.55); }
     .dropdown a:hover { background: transparent; color: var(--sky-lt); }
 
     .masthead { padding: 40px 0 36px; }
@@ -182,7 +182,7 @@
   }
 
   .no-tel { unicode-bidi: plaintext; }
-  a[href^="mailto"] { color: inherit; text-decoration: none; }
+  a[href^="mailto"] { pointer-events: none; color: inherit; text-decoration: none; }
   .no-auto-link { -webkit-touch-callout: none; }
 </style>
 </head>
@@ -243,7 +243,7 @@
     <div>
       <div class="masthead-label">Est. 1947</div>
       <h1 class="masthead-title">대한의사학회</h1>
-      <p class="masthead-sub"><span class="masthead-hanja">大韓醫史學會</span> &nbsp;·&nbsp; Korean Association for the History of Medicine</p>
+      <p class="masthead-sub"><span class="masthead-hanja">大韓醫史學會</span> &nbsp;·&nbsp; Korean Society for the History of Medicine</p>
     </div>
     <div class="masthead-year">1947</div>
   </div>
@@ -254,46 +254,13 @@
     <div class="top-row">
 
       <div class="card fade-in">
-        <div class="card-label">Announcements</div>
-        <div class="card-title">공지사항</div>
-        <div id="notices-container"></div>
-        <a href="https://www.medhist.or.kr/notice/" class="more-link" target="_blank">전체 공지 보기</a>
+        <div class="card-label">Upcoming Events</div>
+        <div class="card-title">다가오는 행사</div>
+        <div id="events-container"></div>
+        <a href="https://www.medhist.or.kr/notice/" class="more-link" target="_blank">전체 일정 보기</a>
       </div>
 
       <div class="card fade-in">
-        <div class="card-label">Mission</div>
-        <div class="card-title" style="margin-bottom:24px;">대한의사학회는</div>
-        <div style="display:flex;flex-direction:column;gap:0;">
-          <div style="padding:9px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:13px;line-height:1.6;">의학사를 학제적으로 연구합니다</div>
-          <div style="padding:9px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:13px;line-height:1.6;">학술지와 연구서를 발간하여 의학사 연구를 심화합니다</div>
-          <div style="padding:9px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:13px;line-height:1.6;">국내외 의학사 연구자 커뮤니티를 잇습니다</div>
-          <div style="padding:9px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:13px;line-height:1.6;">차세대 의학사 연구자를 양성합니다</div>
-          <div style="padding:9px 0;font-family:var(--serif);font-size:13px;line-height:1.6;">의학사 교육을 선도합니다</div>
-        </div>
-      </div>
-
-      <div class="card fade-in">
-        <div class="card-label">About</div>
-        <div class="card-title">학회 소개</div>
-        <p class="about-body">
-          대한의사학회는 1947년 창립된 한국 최초의 의학사 학술단체입니다. 한국을 비롯하여 아시아와 서구를 아우르는 의학 지식·의료 실천·의료 문화의 형성과 변화를 학제적으로 탐구합니다. 연구 범위는 선사시대부터 현대까지, 의학·치의학·간호학·한의학을 포괄합니다. 학회지 『의사학』은 1992년 창간 이후 현재 연 3회(4월·8월·12월) 발행됩니다.
-        </p>
-        <div class="about-stats">
-          <div class="stat">
-            <div class="stat-num">1947</div>
-            <div class="stat-label">창립 연도</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">1992</div>
-            <div class="stat-label">학술지 창간</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="bottom-row">
-      <div class="card about-card">
         <div class="card-label">Latest Articles</div>
         <div class="card-title">최신 논문 <span style="font-family:var(--serif);font-size:12px;color:var(--silver);font-weight:300;">— 의사학</span></div>
         <div id="papers-container">
@@ -305,6 +272,41 @@
         <a href="https://www.medhist.or.kr/articles/current.php" class="more-link" target="_blank">최신호 전체 보기</a>
       </div>
 
+      <div class="card fade-in">
+        <div class="card-label">Announcements</div>
+        <div class="card-title">공지사항</div>
+        <div id="notices-container"></div>
+        <a href="https://www.medhist.or.kr/notice/" class="more-link" target="_blank">전체 공지 보기</a>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="about-card">
+        <div class="card-label">About</div>
+        <div class="card-title">학회 소개</div>
+        <p class="about-body">
+          대한의사학회는 1947년 창립된 한국 최초의 의학사 학술단체입니다.
+          한국 의학의 역사적 맥락과 동아시아 의학 전통, 근현대 의학 지식의 형성과
+          제도화를 탐구하며, 의학과 사회·문화·정치의 접점을 학제적으로 연구합니다.
+          학회지 『의사학』은 연 3회 발행됩니다.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">1947</div>
+            <div class="stat-label">창립 연도</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1992</div>
+            <div class="stat-label">학술지 창간</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">34</div>
+            <div class="stat-label">학회지 권호</div>
+          </div>
+        </div>
+        <a href="#" class="more-link">학회 연혁 보기</a>
+      </div>
+
       <div class="journal-card">
         <div>
           <div class="journal-label">Official Journal</div>
@@ -312,7 +314,7 @@
           <div class="journal-subtitle">Korean Journal of Medical History</div>
           <div class="journal-meta">
             <span class="no-tel">ISSN 1225&#8209;505X (Print) · 2093&#8209;5609 (Online)</span><br>
-            연 3회 발행 · KoreaMed · KoMCI · KCI · WPRIM · DOAJ · Google Scholar<br>Medline/PubMed · SCOPUS · A&amp;HCI/Web of Science
+            연 3회 발행 · KCI 등재 · A&amp;HCI<br>Scopus · PubMed · PMC
           </div>
         </div>
         <a href="https://www.medhist.or.kr/" class="btn-journal" target="_blank">학술지 홈페이지 바로가기</a>
@@ -326,7 +328,7 @@
     <div>
       <div class="footer-name">대한의사학회</div>
       <div>The Korean Society for the History of Medicine</div>
-      <div>인제대학교 의과대학 인문사회의학교실 · 051-890-8677 · <a href="mailto:medhistory@hanmail.net" style="color:inherit;text-decoration:none;">medhistory@hanmail.net</a></div>
+      <div>인제대학교 의과대학 인문사회의학교실 · TEL 051-890-8677 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="600d0504080913140f12192008010e0d01090c4e0e0514">[email&#160;protected]</a></div>
       <div class="footer-copy">© 2025 The Korean Society for the History of Medicine. All rights reserved.</div>
     </div>
     <div class="footer-links">
@@ -336,7 +338,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const FALLBACK = [
   {
     title: '혁명과 \'혁명\' 사이의 보건: 보건사업평가조사사업과 한국 보건의 \'자립\', 1960~1962',
@@ -349,6 +351,12 @@ const FALLBACK = [
     author: '양영순',
     vol: 'Vol. 34(3) · Dec 2025',
     link: 'https://www.medhist.or.kr/journal/view.php?number=2496'
+  },
+  {
+    title: '20세기 초 미국의 무통분만법: 트와일라잇 슬립과 선라이즈 슬럼버',
+    author: '신지혜',
+    vol: 'Vol. 34(3) · Dec 2025',
+    link: 'https://www.medhist.or.kr/journal/view.php?number=2495'
   }
 ];
 
@@ -366,51 +374,44 @@ function renderPapers(list) {
 
 async function loadPapers() {
   var rssUrl = 'https://www.medhist.or.kr/journal/rss/make_xml.php';
-  var proxies = [
-    'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl),
-    'https://corsproxy.io/?' + encodeURIComponent(rssUrl)
-  ];
-  for (var i = 0; i < proxies.length; i++) {
-    try {
-      var res = await fetch(proxies[i]);
-      if (!res.ok) continue;
-      var text;
-      if (proxies[i].indexOf('allorigins') !== -1) {
-        var json = await res.json();
-        if (!json.contents) continue;
-        text = json.contents;
-      } else {
-        text = await res.text();
+  var proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(rssUrl);
+  try {
+    var res = await fetch(proxyUrl);
+    if (!res.ok) throw new Error('fetch failed');
+    var json = await res.json();
+    if (!json.contents) throw new Error('no contents');
+
+    var parser = new DOMParser();
+    var xml = parser.parseFromString(json.contents, 'application/xml');
+    var items = Array.from(xml.querySelectorAll('item')).slice(0, 3);
+    if (!items.length) throw new Error('no items');
+
+    var papers = items.map(function(item) {
+      var title = (item.querySelector('title') || {}).textContent || '';
+      // 제목에 영문/한글 슬래시 구분이 있으면 한글 부분만
+      if (title.indexOf(' / ') !== -1) {
+        title = title.split(' / ').pop();
       }
-      var parser = new DOMParser();
-      var xml = parser.parseFromString(text, 'application/xml');
-      var items = Array.from(xml.querySelectorAll('item')).slice(0, 2);
-      if (!items.length) continue;
-      var papers = items.map(function(item) {
-        var getText = function(tag) { var el = item.querySelector(tag); return el ? el.textContent.trim() : ''; };
-        var title = getText('title');
-        if (title.indexOf(' / ') !== -1) {
-          var parts = title.split(' / ');
-          // 한글 포함된 쪽 선택
-          title = parts.find(function(p) { return /[\uAC00-\uD7A3]/.test(p); }) || parts[0];
-          title = title.trim();
-        }
-        var authorEl = item.getElementsByTagName('dc:creator')[0] || item.getElementsByTagName('creator')[0];
-        var author = authorEl ? authorEl.textContent.trim() : '';
-        var desc = getText('description');
-        var volMatch = desc.match(/Vol[^<]+/);
-        var vol = volMatch ? volMatch[0].trim() : getText('category') || '';
-        var link = getText('link') || (item.querySelector('guid') ? item.querySelector('guid').textContent.trim() : '#');
-        return { title: title, author: author, vol: vol, link: link };
-      });
-      renderPapers(papers);
-      return;
-    } catch(e) { continue; }
+      title = title.trim();
+
+      return { title: title, author: author, vol: vol, link: link };
+    });
+
+    document.getElementById('papers-container').innerHTML = papers.map(function(p) {
+      return '<a href="' + p.link + '" class="paper-title-link" target="_blank"><div class="paper-title">' + p.title + '</div><div class="paper-author">' + p.author + '</div><div class="paper-vol">' + p.vol + '</div></a>';
+    }).join('');
+
+  } catch(e) {
+    var fallback = document.getElementById('papers-container');
+    if (fallback) {
+      fallback.innerHTML = FALLBACK.map(function(p) {
+        return '<a href="' + p.link + '" class="paper-title-link" target="_blank"><div class="paper-title">' + p.title + '</div><div class="paper-author">' + p.author + '</div><div class="paper-vol">' + p.vol + '</div></a>';
+      }).join('');
+    }
   }
-  renderPapers(FALLBACK);
 }
-// _replaced_
-loadPapers();
+
+fetchPapers();
 </script>
 
 <script>
@@ -437,7 +438,11 @@ async function loadConfig() {
   }
   const s = c.society;
 
-  // events-container 제거됨
+  document.getElementById('events-container').innerHTML = c.events.map(e => `
+    <div class="event-item">
+      <div class="event-date"><span class="month">${e.month}</span><span class="day">${e.day}</span></div>
+      <div><div class="event-name">${e.name}</div><div class="event-place">${e.place}</div></div>
+    </div>`).join('');
 
   document.getElementById('notices-container').innerHTML = c.notices.map(n => `
     <a href="${n.url}" class="notice-item" target="_blank">
@@ -463,20 +468,6 @@ loadConfig();
   btn.addEventListener('click', function() {
     var open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
-    btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  nav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      nav.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-label', '메뉴 열기');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
-  });
-})();
-</script>
-</body>
-</html>
+  nav.querySelectorAl
